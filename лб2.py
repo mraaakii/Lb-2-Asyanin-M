@@ -20,7 +20,6 @@ while True:
             index = lower_case.find(search.lower())
             if index != -1:
                 print(f'Автор: {row[3]} "{row[1]}"')
-                #output.write(f'{row[1]}\n')
                 flag +=1
         if flag == 0:
             print('Ничего не найдено :(')

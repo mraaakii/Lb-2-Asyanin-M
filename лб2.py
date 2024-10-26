@@ -4,11 +4,13 @@ from random import randint
 output = open('result.txt', 'w')
 
 #строка > 30
+count = 0
 with open('books.csv', 'r') as csvfile:
     table  = reader(csvfile, delimiter=';')
     for row in table:
         if len(row[1]) > 30:
-            print(f'Автор: {row[3]} "{row[1]}"')
+            count +=1
+    print(f'Кол-во книг с названием длиннее 30 символов: {count}')
 #поиск по автору
 flag = 0
 search  = input('Введите автора:')
@@ -32,8 +34,8 @@ with open('books.csv', 'r') as csvfile:
         table1.append(row)
     for i in range(20):
         index = randint(0,9410)
-        print(f'{index+1}. {table1[index][3]}. {table1[index][1]}. Дата поступления: {table1[index][6]}')
-        output.write(f'{index+1}. {table1[index][3]}. {table1[index][1]}. Дата поступления: {table1[index][6]}\n')
+        print(f'{i+1}. {table1[index][3]}. {table1[index][1]}. Дата поступления: {table1[index][6]}')
+        output.write(f'{i+1}. {table1[index][3]}. {table1[index][1]}. Дата поступления: {table1[index][6]}\n')
 
 output.close()
 

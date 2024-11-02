@@ -29,13 +29,10 @@ with open('books.csv', 'r') as csvfile:
 #генератор библиографических ссылок
 with open('books.csv', 'r') as csvfile:
     table = reader(csvfile, delimiter=';')
-    table1 = []
-    for row in table:
-        table1.append(row)
+    table1 = list(table)
     for i in range(20):
-        index = randint(0,9410)
+        index = randint(0, len(table1))
         print(f'{i+1}. {table1[index][3]}. {table1[index][1]}. Дата поступления: {table1[index][6]}')
         output.write(f'{i+1}. {table1[index][3]}. {table1[index][1]}. Дата поступления: {table1[index][6]}\n')
 
 output.close()
-
